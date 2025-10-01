@@ -2,11 +2,16 @@
 
 <div align="center">
 
+![GitHub stars](https://img.shields.io/github/stars/galafis/TypeScript-API-Gateway?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/galafis/TypeScript-API-Gateway?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/galafis/TypeScript-API-Gateway?style=for-the-badge)
+![GitHub license](https://img.shields.io/github/license/galafis/TypeScript-API-Gateway?style=for-the-badge)
+
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-4.18+-000000?style=for-the-badge&logo=express&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)
 ![Version](https://img.shields.io/badge/Version-1.0.0-green.svg?style=for-the-badge)
+
 
 **Enterprise API Gateway Service**
 
@@ -21,6 +26,19 @@
 ## 🇺🇸 English
 
 ### 📋 Overview
+
+```mermaid
+graph TD
+    User[Client Application] --> |HTTP/S Requests| APIGateway(API Gateway Service)
+    APIGateway --> |Route Requests| ServiceA[Microservice A]
+    APIGateway --> |Route Requests| ServiceB[Microservice B]
+    APIGateway --> |Route Requests| ServiceC[Microservice C]
+    ServiceA --> DatabaseA[(Database A)]
+    ServiceB --> DatabaseB[(Database B)]
+    ServiceC --> DatabaseC[(Database C)]
+    APIGateway -- Authentication/Authorization --> AuthZ[Authorization Service]
+    APIGateway -- Rate Limiting/Monitoring --> Monitoring[Monitoring & Logging]
+```
 
 Enterprise API Gateway Service built with TypeScript for enhanced type safety and developer experience. This project demonstrates advanced TypeScript development skills, modern Node.js architecture, and enterprise-level software engineering practices.
 
@@ -96,25 +114,31 @@ interface ApiResponse<T> {
 const response: ApiResponse<User> = await fetchUser(userId);
 ```
 
-### 🏗️ Project Structure
+### 🏗️ Estrutura do Projeto
 
 ```
 TypeScript-API-Gateway/
 ├── src/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── services/
-│   ├── types/
-│   └── utils/
-├── dist/
-├── tests/
-├── package.json
-├── tsconfig.json
-├── .eslintrc.js
-└── README.md
+│   ├── config/             # Arquivos de configuração
+│   ├── controllers/        # Manipuladores de requisições
+│   ├── middleware/         # Middlewares do Express
+│   ├── models/             # Modelos de dados e interfaces
+│   ├── routes/             # Definições de rotas da API
+│   ├── services/           # Serviços de lógica de negócios
+│   ├── types/              # Tipos TypeScript personalizados
+│   ├── utils/              # Funções utilitárias
+│   └── server.ts           # Ponto de entrada principal da aplicação
+├── tests/                  # Testes unitários e de integração
+├── dist/                   # Saída JavaScript compilada
+├── .github/                # Configurações específicas do GitHub (ex: workflows, GitHub Pages)
+├── package.json            # Dependências e scripts do projeto
+├── tsconfig.json           # Configuração do compilador TypeScript
+├── jest.config.js          # Configuração do Jest para testes
+├── .eslintrc.js            # Configuração do ESLint
+└── README.md               # Documentação do projeto
 ```
+
+
 
 ### 🧪 Testing
 
@@ -144,6 +168,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🇧🇷 Português
 
 ### 📋 Visão Geral
+
+```mermaid
+graph TD
+    User[Aplicação Cliente] --> |Requisições HTTP/S| APIGateway(Serviço de API Gateway)
+    APIGateway --> |Rotear Requisições| ServiceA[Microsserviço A]
+    APIGateway --> |Rotear Requisições| ServiceB[Microsserviço B]
+    APIGateway --> |Rotear Requisições| ServiceC[Microsserviço C]
+    ServiceA --> DatabaseA[(Banco de Dados A)]
+    ServiceB --> DatabaseB[(Banco de Dados B)]
+    ServiceC --> DatabaseC[(Banco de Dados C)]
+    APIGateway -- Autenticação/Autorização --> AuthZ[Serviço de Autorização]
+    APIGateway -- Limitação de Taxa/Monitoramento --> Monitoring[Monitoramento e Log]
+```
 
 Enterprise API Gateway Service construído com TypeScript para maior segurança de tipos e experiência do desenvolvedor. Este projeto demonstra habilidades avançadas de desenvolvimento TypeScript, arquitetura moderna Node.js e práticas de engenharia de software de nível empresarial.
 
