@@ -3,38 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentação da API Gateway em TypeScript</title>
-    <link rel="stylesheet" href="style.css">
+    <title>TypeScript API Gateway - Documentação</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>API Gateway em TypeScript</h1>
+        <h1>TypeScript API Gateway</h1>
+        <nav>
+            <a href="#overview">Visão Geral</a>
+            <a href="#features">Funcionalidades</a>
+            <a href="#tech-stack">Tecnologias</a>
+            <a href="#quick-start">Início Rápido</a>
+            <a href="#project-structure">Estrutura do Projeto</a>
+            <a href="https://github.com/galafis/TypeScript-API-Gateway" target="_blank">Repositório GitHub</a>
+        </nav>
     </header>
     <main>
-        <section class="intro">
-            <h2>Bem-vindo à Documentação</h2>
-            <p>Este repositório contém uma implementação de API Gateway utilizando TypeScript. O objetivo é fornecer uma solução robusta e escalável para gerenciar e rotear requisições para diferentes serviços de backend.</p>
+        <section id="overview">
+            <h2>Visão Geral</h2>
+            <p>Enterprise API Gateway Service construído com TypeScript para maior segurança de tipos e experiência do desenvolvedor. Este projeto demonstra habilidades avançadas de desenvolvimento TypeScript, arquitetura moderna Node.js e práticas de engenharia de software de nível empresarial.</p>
+            <pre><code class="mermaid">
+graph TD
+    User[Aplicação Cliente] --> |Requisições HTTP/S| APIGateway(Serviço de API Gateway)
+    APIGateway --> |Rotear Requisições| ServiceA[Microsserviço A]
+    APIGateway --> |Rotear Requisições| ServiceB[Microsserviço B]
+    APIGateway --> |Rotear Requisições| ServiceC[Microsserviço C]
+    ServiceA --> DatabaseA[(Banco de Dados A)]
+    ServiceB --> DatabaseB[(Banco de Dados B)]
+    ServiceC --> DatabaseC[(Banco de Dados C)]
+    APIGateway -- Autenticação/Autorização --> AuthZ[Serviço de Autorização]
+    APIGateway -- Limitação de Taxa/Monitoramento --> Monitoring[Monitoramento e Log]
+</code></pre>
         </section>
-        <section class="features">
-            <h2>Funcionalidades Principais</h2>
+        <section id="features">
+            <h2>Principais Funcionalidades</h2>
             <ul>
-                <li>Roteamento de requisições</li>
-                <li>Autenticação e Autorização</li>
-                <li>Transformação de Requisições/Respostas</li>
-                <li>Tratamento de Erros</li>
-                <li>Monitoramento e Logs</li>
+                <li>Centralized API management</li>
+                <li>Request routing and load balancing</li>
+                <li>Authentication and authorization</li>
+                <li>Rate limiting and throttling</li>
+                <li>API versioning support</li>
+                <li>Real-time monitoring and analytics</li>
+                <li>Circuit breaker pattern</li>
+                <li>Comprehensive logging and tracing</li>
             </ul>
         </section>
-        <section class="links">
-            <h2>Links Úteis</h2>
+        <section id="tech-stack">
+            <h2>Stack Tecnológica</h2>
             <ul>
-                <li><a href="https://github.com/galafis/TypeScript-API-Gateway" target="_blank">Repositório GitHub</a></li>
-                <li><a href="#" target="_blank">Documentação Detalhada (em breve)</a></li>
+                <li><strong>TypeScript 5.0+</strong> - Superset do JavaScript com tipagem forte</li>
+                <li><strong>Node.js 18+</strong> - Ambiente de execução JavaScript</li>
+                <li><strong>Express.js 4.18+</strong> - Framework de aplicação web</li>
+                <li><strong>ESLint</strong> - Linting e formatação de código</li>
+                <li><strong>Prettier</strong> - Formatação de código</li>
+                <li><strong>Jest</strong> - Framework de testes com suporte TypeScript</li>
+                <li><strong>ts-node</strong> - Ambiente de execução TypeScript</li>
             </ul>
+        </section>
+        <section id="quick-start">
+            <h2>Início Rápido</h2>
+            <h3>Pré-requisitos</h3>
+            <ul>
+                <li>Node.js 18 ou superior</li>
+                <li>npm 8 ou superior</li>
+                <li>Conhecimento em TypeScript</li>
+            </ul>
+            <h3>Instalação e Configuração</h3>
+            <ol>
+                <li><strong>Clone o repositório</strong>
+                    <pre><code>git clone https://github.com/galafis/TypeScript-API-Gateway.git
+cd TypeScript-API-Gateway</code></pre>
+                </li>
+                <li><strong>Instale as dependências</strong>
+                    <pre><code>npm install</code></pre>
+                </li>
+                <li><strong>Compile o projeto</strong>
+                    <pre><code>npm run build</code></pre>
+                </li>
+                <li><strong>Inicie o servidor de desenvolvimento</strong>
+                    <pre><code>npm run dev</code></pre>
+                </li>
+                <li><strong>Inicie o servidor de produção</strong>
+                    <pre><code>npm start</code></pre>
+                </li>
+            </ol>
+        </section>
+        <section id="project-structure">
+            <h2>Estrutura do Projeto</h2>
+            <pre><code>
+TypeScript-API-Gateway/
+├── src/
+│   ├── config/             # Arquivos de configuração
+│   ├── controllers/        # Manipuladores de requisições
+│   ├── middleware/         # Middlewares do Express
+│   ├── models/             # Modelos de dados e interfaces
+│   ├── routes/             # Definições de rotas da API
+│   ├── services/           # Serviços de lógica de negócios
+│   ├── types/              # Tipos TypeScript personalizados
+│   ├── utils/              # Funções utilitárias
+│   └── server.ts           # Ponto de entrada principal da aplicação
+├── tests/                  # Testes unitários e de integração
+├── dist/                   # Saída JavaScript compilada
+├── .github/                # Configurações específicas do GitHub (ex: workflows, GitHub Pages)
+├── package.json            # Dependências e scripts do projeto
+├── tsconfig.json           # Configuração do compilador TypeScript
+├── jest.config.js          # Configuração do Jest para testes
+├── .eslintrc.js            # Configuração do ESLint
+└── README.md               # Documentação do projeto
+</code></pre>
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 Gabriel Demetrios Lafis</p>
+        <p>Desenvolvido com ❤️ por Gabriel Demetrios Lafis</p>
+        <p><a href="https://github.com/galafis/TypeScript-API-Gateway" target="_blank">GitHub</a> | <a href="https://linkedin.com/in/gabriel-lafis" target="_blank">LinkedIn</a></p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
 </body>
 </html>
